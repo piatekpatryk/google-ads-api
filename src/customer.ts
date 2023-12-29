@@ -166,7 +166,7 @@ export class Customer extends ServiceFactory {
     });
   }
 
-  private async search(
+  public async search(
     gaqlQuery: string,
     requestOptions: Readonly<RequestOptions>
   ): Promise<{
@@ -198,7 +198,7 @@ export class Customer extends ServiceFactory {
     return { response, nextPageToken, totalResultsCount };
   }
 
-  private async paginatedSearch(
+  public async paginatedSearch(
     gaqlQuery: string,
     requestOptions: Readonly<RequestOptions>,
     parser: (rows: services.IGoogleAdsRow[]) => services.IGoogleAdsRow[]

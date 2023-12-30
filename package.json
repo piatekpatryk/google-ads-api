@@ -12,7 +12,7 @@
     "lint": "eslint . --ext .ts",
     "build": "tsc",
     "compile": "tsc && node build/scripts/index.js",
-    "prepare": "rm -rf build && npm run build"
+    "prepare": "npm run build"
   },
   "author": "Opteo",
   "license": "MIT",

@@ -3,7 +3,7 @@ import { Customer } from "./customer";
 import { Hooks } from "./hooks";
 import * as parser from "./parser";
 import { errors, GoogleAdsServiceClient, services } from "./protos";
-import { PageToken, ReportOptions, MutateOperation } from "./types";
+import { MutateOperation, PageToken, ReportOptions } from "./types";
 
 export const MOCK_CLIENT_ID = "MOCK CLIENT ID";
 export const MOCK_CLIENT_SECRET = "MOCK CLIENT SECRET";
@@ -69,7 +69,6 @@ export function mockPaginatedSearch(
 ): jest.SpyInstance {
   return (
     jest
-      // @ts-expect-error private method
       .spyOn(customer, "paginatedSearch")
       // @ts-expect-error
       .mockImplementation((gaqlQuery, requestOptions, _parser) => {
@@ -97,7 +96,6 @@ export function mockSearchOnce({
 }): jest.SpyInstance {
   return (
     jest
-      // @ts-expect-error private method
       .spyOn(customer, "search")
       // @ts-expect-error
       .mockImplementationOnce(() => {
